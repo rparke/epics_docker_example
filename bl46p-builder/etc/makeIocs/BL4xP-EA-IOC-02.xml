@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<EPICS_BASE.EpicsEnvSet key="EPICS_CA_MAX_ARRAY_BYTES" name="maxArrayBytes" value="3000000"/>
+	<devIocStats.devIocStatsHelper ioc="$(BL)-EA-IOC-02"/>
+	<ADPandABlocks.ADPandABlocks ADDR="0" HOST="192.168.250.18" MAXBUF="1000" P="$(BL)-MO-PANDA-01" PORT="PANDA.DRV" R=":DRV:" TIMEOUT="1"/>
+	<ADPandABlocks.TTLControl P="$(BL)-MO-PANDA-01" PORT="PANDA.DRV" R=":DRV:" TTL_IND="3"/>
+	<ADPandABlocks.TTLControl P="$(BL)-MO-PANDA-01" PORT="PANDA.DRV" R=":DRV:" TTL_IND="2"/>
+	<ADCore.NDAttrPlot NDARRAY_PORT="PANDA.DRV" P="$(BL)-MO-PANDA-01" PORT="PANDA.PLOT" R=":PLOT:"/>
+	<ADCore.NDPosPlugin ADDR="0" ENABLED="1" NDARRAY_PORT="PANDA.DRV" P="$(BL)-MO-PANDA-01" PORT="PANDA.POS" QUEUE="1000" R=":POS:" TIMEOUT="1"/>
+	<ADCore.NDFileHDF5 ADDR="0" ENABLED="1" NDARRAY_PORT="PANDA.POS" P="$(BL)-MO-PANDA-01" PORT="PANDA.HDF" QUEUE="1000" R=":HDF5:" TIMEOUT="1"/>
+	<EPICS_BASE.dbpf pv="$(BL)-MO-PANDA-01:DRV:TTL2:CUSTOM" value="PCAP.ACTIVE"/>
+	<EPICS_BASE.dbpf pv="$(BL)-MO-PANDA-01:DRV:TTL2:OUTPUT.TWST" value="AUTO"/>
+	<EPICS_BASE.dbpf pv="$(BL)-MO-PANDA-01:DRV:TTL2:OUTPUT.ONST" value="OPEN"/>
+	<EPICS_BASE.dbpf pv="$(BL)-MO-PANDA-01:DRV:TTL2:OUTPUT.ZRST" value="CLOSED"/>
+</components>
