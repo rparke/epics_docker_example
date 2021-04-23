@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<EPICS_BASE.EpicsEnvSet key="EPICS_CA_MAX_ARRAY_BYTES" name="maxArrayBytes" value="3000000"/>
+	<devIocStats.devIocStatsHelper ioc="$(BL)-MO-IOC-01"/>
+	<pmac.pmacAsynIPPort IP="192.168.250.13:1025" name="BRICK1port"/>
+	<pmac.GeoBrick IdlePoll="1000" NAXES="4" P="$(BL)-MO-BRICK-01" Port="BRICK1port" name="BRICK1"/>
+	<pmac.GeoBrickTrajectoryControlT NPOINTS="10000" PORT="BRICK1" name="BRICK1.TRAJ"/>
+	<pmac.autohome GRP1="All" GRP2="X" GRP3="A" P="$(BL)-MO-MAP-01:STAGE" PLC="11" PORT="BRICK1" name="BRICK1.HOME"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.1" ADDR="1" DESC="X" DHLM="25" DLLM="-25" EGU="mm" HLM="25" LLM="-25" M=":X" MRES="-0.000125" P="$(BL)-MO-MAP-01:STAGE" PORT="BRICK1" PREC="3" SPORT="BRICK1port" TWV="1" UEIP="1" VELO="4" name="MOTORS.M1"/>
+	<pmac.dls_pmac_asyn_motor ACCL="0.1" ADDR="2" DESC="A" EGU="mm" HLSV="NO_ALARM" M=":A" MRES="0.018" P="$(BL)-MO-MAP-01:STAGE" PORT="BRICK1" PREC="3" SPORT="BRICK1port" TWV="18.0" UEIP="1" VELO="2500" name="MOTORS.M2"/>
+	<pmac.CS CS="1" Controller="BRICK1" IdlePoll="1000" PARENTPORT="BRICK1port" name="CS1"/>
+	<pmac.pmacDisableLimitsCheck Axis="2" Controller="BRICK1" name="BRICK1.LIMS"/>
+</components>

@@ -1,0 +1,41 @@
+- builtin.parameters.string:
+    name: mri_prefix
+    description: MRI for created beamlineock
+
+- builtin.parameters.string:
+    name: beamline
+    description: prefix for beamline
+
+- builtin.parameters.string:
+    name: config_dir
+    description: Where to store saved configs
+
+- builtin.controllers.ManagerController:
+    mri: $(mri_prefix)
+    config_dir: $(config_dir)
+
+# Label so that we can tell at a glance what this PMAC controls at runtime
+- builtin.parts.LabelPart:
+    value: Brick with X and A Sample stage motors
+
+# Raw motor Blocks and their corresponding Parts
+- pmac.includes.rawmotor_collection:
+    mri: $(beamline)-MO-STAGE-01:X
+    pv_prefix: $(beamline)-MO-MAP-01:STAGE:X
+    scannable: stagex
+
+- pmac.includes.rawmotor_collection:
+    mri: $(beamline)-MO-STAGE-01:A
+    pv_prefix: $(beamline)-MO-MAP-01:STAGE:A
+    scannable: stagea
+
+# Co-ordinate system Block and its corresponding Part
+- pmac.includes.cs_collection:
+    mri_prefix: $(mri_prefix)
+    pv_prefix: $(beamline)-MO-BRICK-01
+    cs: 1
+
+# Trajectory scan and status Blocks and their corresponding Parts
+- pmac.includes.trajectory_collection:
+    mri_prefix: $(mri_prefix)
+    pv_prefix: $(beamline)-MO-BRICK-01

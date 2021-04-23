@@ -23,7 +23,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 SUPPORT=/dls_sw/prod/R3.14.12.7/support
 WORK=/dls_sw/work/R3.14.12.7/support
-HOME=/home/eja26438/Documents/EPICS_CONTAINERS/epics_docker_example
+HOME=/home/eja26438/Documents
 
 ## If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq

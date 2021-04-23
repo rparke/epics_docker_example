@@ -1,0 +1,22 @@
+- scan:
+    name: sor_test_scan
+    repeats: 1
+    generator:
+        duration: 0.05
+        continuous: true
+        delay_after: 0
+        generators:
+            - line:
+                axes: stage_a
+                units: mm
+                start: 0.0
+                stop: 360.0
+                size: 60
+                alternate: true
+            - line:
+                axes: stage_x
+                units: mm
+                start: -10.0
+                stop: 10.0
+                size: 20
+                alternate: true

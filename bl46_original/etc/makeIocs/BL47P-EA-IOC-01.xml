@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<BL46P-BUILDER.BL4xP_EA1 BL="BL47P"/>
+</components>

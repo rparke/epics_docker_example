@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<components arch="linux-x86_64">
+	<EPICS_BASE.EpicsEnvSet key="EPICS_CA_MAX_ARRAY_BYTES" name="maxArrayBytes" value="3000000"/>
+	<devIocStats.devIocStatsHelper ioc="$(BL)-EA-IOC-01"/>
+	<!--cameras-->
+	<aravisGigE.aravisCamera ADDR="0" BUFFERS="1100" CLASS="AVT_Mako_1_52" ID="192.168.250.3" P="$(BL)-EA-DET-01" PORT="DET.CAM" R=":DET:" TIMEOUT="1"/>
+	<ADCore.NDPosPlugin ADDR="0" ENABLED="1" NDARRAY_PORT="DET.CAM" P="$(BL)-EA-DET-01" PORT="DET.POS" QUEUE="1000" R=":POS:" TIMEOUT="1"/>
+	<ADCore.NDStats ADDR="0" ENABLED="1" HIST_SIZE="256" NCHANS="1000" NDARRAY_PORT="DET.POS" P="$(BL)-EA-DET-01" PORT="DET.STAT" QUEUE="1000" R=":STAT:" TIMEOUT="1" XSIZE="1936" YSIZE="1236"/>
+	<ADCore.NDFileHDF5 ADDR="0" ENABLED="1" NDARRAY_ADDR="0" NDARRAY_PORT="DET.STAT" P="$(BL)-EA-DET-01" PORT="DET.HDF" QUEUE="1000" R=":HDF5:" TIMEOUT="1"/>
+	<ADCore.NDStdArrays FTVL="UCHAR" NDARRAY_PORT="DET.CAM" NELEMENTS="38720" P="$(BL)-EA-DET-01" PORT="DET.ARR" R=":ARR:" TYPE="Int8"/>
+	<ADCore.NDPvaPlugin ENABLED="1" NDARRAY_ADDR="0" NDARRAY_PORT="DET.CAM" P="$(BL)-EA-DET-01" PORT="DET.PVA" PVNAME="$(BL)-EA-DET-01:TX:PVA" R=":TX:" TIMEOUT="0"/>
+	<ADZMQ.NDZMQPlugin DEST_ADDR="127.0.0.1:1515" NDARRAY_PORT="DET.CAM" P="$(BL)-EA-DET-01" PORT="DET.ZMQ" QUEUE="1000" R=":ZMQ:" TRANSPORT="tcp" ZMQ_TYPE="PUSH"/>
+	<ffmpegServer.ffmpegStream ADDR="0" ENABLED="1" HTTP_PORT="8090" MEMORY="0" NDARRAY_PORT="DET.CAM" P="$(BL)-EA-DET-01" PORT="DET.MJPG" R=":MJPG:" TIMEOUT="1"/>
+	<aravisGigE.aravisCamera ADDR="0" BUFFERS="1100" CLASS="AVT_Mako_1_52" ID="192.168.250.28" P="$(BL)-EA-DET-02" PORT="DET2.CAM" R=":DET:" TIMEOUT="1"/>
+	<ffmpegServer.ffmpegStream ADDR="0" ENABLED="1" HTTP_PORT="8095" MEMORY="0" NDARRAY_PORT="DET2.CAM" P="$(BL)-EA-DET-02" PORT="DET2.MJPG" R=":MJPG:" TIMEOUT="1"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-01:DET:SizeY" value="20"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-01:DET:OffsetY" value="600"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-01:DET:TriggerSource" value="&quot;Line1&quot;"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-01:DET:GevSCPSPacketSiz" value="1500"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-02:DET:TriggerSource" value="&quot;FixedRate&quot;"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-02:DET:GevSCPSPacketSiz" value="1500"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-02:DET:ColorMode" value="&quot;RGB1&quot;"/>
+	<EPICS_BASE.dbpf pv="$(BL)-EA-DET-02:DET:AcquireTime" value="0.5"/>
+</components>

@@ -1,6 +1,4 @@
 <?xml version="1.0" ?>
-<components arch="linux-x86_64">
-	<userIO.ai DTYP="float" EGU="mm" EGUF="100" EGUL="0" INP="" LINR="1" P="BL46P" PREC="2" R="example" SCAN="passive"/>
-	<energy_calc.energy_calc INPA="2" INPB = "6" P="eja26438:energy_calc"/>
-	<EPICS_BASE.StartupCommand command="echo &quot;test&quot;"/>
+<components arch="vxWorks-ppc604_long">
+	<energy_calc_built.energy_calc INPA="6" INPB="2" P="eja26438:container:test"/>
 </components>

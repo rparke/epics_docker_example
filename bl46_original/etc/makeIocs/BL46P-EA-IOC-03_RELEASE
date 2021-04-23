@@ -2,5 +2,5 @@ DEVIOCSTATS=    $(SUPPORT)/devIocStats/3-1-14dls3-3
 AUTOSAVE=       $(SUPPORT)/autosave/5-9dls2
 UTILITY=        $(SUPPORT)/utility/dls2-19
 USERIO=         $(WORK)/userIO
-ENERGYCALC=     $(HOME)/energy_calc_built
+ENERGYCALC=     $(HOME)/energy_calc
 
