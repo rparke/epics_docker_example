@@ -1,0 +1,19 @@
+################################################################
+#
+# % macro, __doc__, Lakeshore 340 Temperature Controller
+# Notes: The temperatures in Kelvin are archived once every 10 secs.
+#
+# Macros:
+# % macro, P, Prefix for PV name
+# % macro, INPA, Input A
+# % macro, INPB, Input B
+#
+################################################################
+
+record(calc, "$(P)") {
+  field(DESC, "Multiply INPA and INPB Together")
+  field(INPA, "$(INPA)")
+  field(INPB, "$(INPB)")
+  field(CALC, "A*B") 
+}
+
