@@ -1,5 +1,0 @@
-ARAVISGIGE=$(SUPPORT)/aravisGigE/3-0dls1-9
-FFMPEGSERVER=$(SUPPORT)/ffmpegServer/3-1dls3
-ADZMQ=$(SUPPORT)/ADZMQ/1-1-1dls1beta2
-DEVIOCSTATS=$(SUPPORT)/devIocStats/3-1-14dls3-1
-

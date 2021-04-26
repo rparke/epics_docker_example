@@ -1,4 +1,0 @@
-<?xml version="1.0" ?>
-<components arch="vxWorks-ppc604_long">
-	<energy_calc_built.energy_calc INPA="6" INPB="2" P="eja26438:container:test"/>
-</components>
