@@ -1,4 +1,4 @@
-FROM gcr.io/diamond-privreg/controls/prod/epics/epics-synapps
+FROM gcr.io/diamond-privreg/controls/prod/epics/epics-synapps:6.2b1.0
 
 COPY --chown=1000 energy_calc energy_calc
 COPY --chown=1000 BL46P-EA-IOC-03 BL46P-EA-IOC-03
