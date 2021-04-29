@@ -20,4 +20,5 @@ COPY --chown=1000 launch_and_boot/BL46P-EA-IOC-03_expanded.db BL46P-EA-IOC-03/db
  
 
 
-CMD ./BL46P-EA-IOC-03/bin/linux-x86_64/stBL46P-EA-IOC-03.sh
+#CMD ./BL46P-EA-IOC-03/bin/linux-x86_64/stBL46P-EA-IOC-03.sh
+CMD ls
